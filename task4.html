@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+    <style>
+        a {
+           font-size:20px ;
+        }
+    </style>
+</head>
+<body>
+    <a href="task1.html">Завдання 1</a>
+    <p></p>
+    <a href="task2.html">Завдання 2</a>
+    <p></p>
+    <a href="task3.html">Завдання 3</a>
+    <p></p>
+    <a href="task4.html">Завдання 4</a>
+    <p></p>
+    <a href="task5.html">Завдання 5</a>
+
+    <script>
+        function findMaxNegativeMinPositive(arr) {
+            let maxNegative = null;
+            let minPositive = null;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    if (maxNegative === null || arr[i] > maxNegative) {
+                        maxNegative = arr[i];
+                    }
+                } else if (arr[i] > 0) {
+                    if (minPositive === null || arr[i] < minPositive) {
+                        minPositive = arr[i];
+                    }
+                }
+            }
+
+            return {
+                maxNegative,
+                minPositive
+            };
+        }
+
+        function selectionSortDescending(arr) {
+            const sortedArr = arr.slice();
+
+            for (let i = 0; i < sortedArr.length - 1; i++) {
+                let maxIndex = i;
+
+                for (let j = i + 1; j < sortedArr.length; j++) {
+                    if (sortedArr[j] > sortedArr[maxIndex]) {
+                        maxIndex = j;
+                    }
+                }
+
+                if (maxIndex !== i) {
+                    [sortedArr[i], sortedArr[maxIndex]] = [sortedArr[maxIndex], sortedArr[i]];
+                }
+            }
+
+            return sortedArr;
+        }
+
+        const input = prompt("Введіть числа через кому:");
+        const array = input.split(',').map(Number);
+
+        const { maxNegative, minPositive } = findMaxNegativeMinPositive(array);
+        const sortedArray = selectionSortDescending(array);
+
+        console.log("Оригінальний масив:", array);
+        console.log("Найбільше від'ємне значення:", maxNegative);
+        console.log("Найменше додатнє значення:", minPositive);
+        console.log("Відсортований масив:", sortedArray);
+    </script>
+</body>
+</html>

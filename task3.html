@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+    <style>
+        a {
+           font-size:20px ;
+        }
+    </style>
+</head>
+<body>
+    <a href="task1.html">Завдання 1</a>
+    <p></p>
+    <a href="task2.html">Завдання 2</a>
+    <p></p>
+    <a href="task3.html">Завдання 3</a>
+    <p></p>
+    <a href="task4.html">Завдання 4</a>
+    <p></p>
+    <a href="task5.html">Завдання 5</a>
+
+    <script>
+    function filterArray(numbers, value) {
+        const filteredNumbers = [];
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] > value) {
+                filteredNumbers.push(numbers[i]);
+            }
+        }
+        return filteredNumbers;
+    }
+    const numbersInput = prompt("Введіть числа через кому:");
+    const numbers = numbersInput.split(',').map(Number);
+    const value = Number(prompt("Введіть значення для порівняння:"));
+    const result = filterArray(numbers, value);
+    alert (result);
+    console.log(result);
+    </script>
+</body>
+</html>
